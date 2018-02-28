@@ -1,6 +1,5 @@
 import { Component, Children } from 'react'
-import PropTypes from 'prop-types'
-import { navigationShape } from '../utils/types'
+import PropTypes from './prop-types'
 
 class Provider extends Component {
   getChildContext () {
@@ -15,12 +14,12 @@ class Provider extends Component {
 }
 
 Provider.propTypes = {
-  navigation: navigationShape.isRequired,
-  children: PropTypes.element.isRequired
+  navigation: PropTypes.navigation.isRequired,
+  children: PropTypes.children.isRequired
 }
 
 Provider.childContextTypes = {
-  navigation: navigationShape.isRequired
+  navigation: PropTypes.navigation.isRequired
 }
 
 export default Provider

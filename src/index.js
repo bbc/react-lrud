@@ -1,3 +1,4 @@
-import Provider from './components/Provider'
+import Provider from './Provider'
+import withNavigation from './with-navigation'
 
-export { Provider }
+export { Provider, withNavigation }

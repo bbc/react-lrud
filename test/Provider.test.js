@@ -5,19 +5,19 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { shallow, mount } from 'enzyme'
 import Lrud from 'lrud'
-import { Provider } from '../../src/index'
-
-class Child extends Component {
-  render () {
-    return <div />
-  }
-}
-
-Child.contextTypes = {
-  navigation: PropTypes.object.isRequired
-}
+import { Provider } from '../src/index'
 
 describe('Provider', () => {
+  class Child extends Component {
+    render () {
+      return <div />
+    }
+  }
+
+  Child.contextTypes = {
+    navigation: PropTypes.object.isRequired
+  }
+
   const propTypes = Provider.propTypes
 
   beforeEach(() => {
