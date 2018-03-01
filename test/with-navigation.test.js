@@ -110,7 +110,7 @@ describe('withNavigation', () => {
     )
 
     expect(window.console.error).toHaveBeenCalledWith(
-      expect.stringMatching(/The prop `wrapping` must be used in conjunction with one of the `vertical`\/`horizontal` props/)
+      expect.stringMatching(/The prop `wrapping` must be used in conjunction with one of props `vertical`\/`horizontal`/)
     )
   })
 
@@ -122,6 +122,7 @@ describe('withNavigation', () => {
       <Navigable
         id='foo'
         grid
+        vertical
       />,
       { context: { navigation } }
     )
@@ -132,13 +133,34 @@ describe('withNavigation', () => {
     })
   })
 
+  it('should warn when the `grid` prop is present without an orientation', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    window.console = { error: jest.fn() }
+
+    shallow(
+      <Navigable
+        id='foo'
+        grid
+      />,
+      { context: { navigation } }
+    )
+
+    expect(window.console.error).toHaveBeenCalledWith(
+      expect.stringMatching(/The prop `grid` must be used in conjunction with one of props `vertical`\/`horizontal`/)
+    )
+  })
+
   it('should register with `parent` from the child context', () => {
     const Navigable = withNavigation(Passthrough)
     const navigation = { register: jest.fn(), unregister: () => {} }
 
     const wrapper = mount(
       <Navigable id='foo'>
-        <Navigable id='bar' />
+        <div>
+          <Navigable id='bar' />
+        </div>
       </Navigable>,
       { context: { navigation } }
     )

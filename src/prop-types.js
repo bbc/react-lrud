@@ -3,7 +3,7 @@ import { and } from 'airbnb-prop-types'
 
 const withOrientation = (props, propName, componentName) => {
   if (props[propName] && !props.vertical && !props.horizontal) {
-    return new Error(`The prop \`${propName}\` must be used in conjunction with one of the \`vertical\`/\`horizontal\` props`)
+    return new Error(`The prop \`${propName}\` must be used in conjunction with one of props \`vertical\`/\`horizontal\``)
   }
 }
 
@@ -12,14 +12,17 @@ export default {
     register: func.isRequired,
     unregister: func.isRequired
   }),
+  id: string,
+  parent: string,
+  children: element,
+  vertical: bool,
+  horizontal: bool,
   wrapping: and([
     bool,
     withOrientation
   ]),
-  children: element,
-  id: string,
-  parent: string,
-  vertical: bool,
-  horizontal: bool,
-  grid: bool
+  grid: and([
+    bool,
+    withOrientation
+  ])
 }

@@ -4,8 +4,8 @@ import uniqid from 'uniqid'
 
 const guid = (Component) => uniqid(`${Component.displayName || Component.name || 'Navigable'}_`)
 
-const getOrientation = ({ vertical, horizontal, grid }) => {
-  if (grid || vertical) return 'vertical'
+const getOrientation = ({ vertical, horizontal }) => {
+  if (vertical) return 'vertical'
   if (horizontal) return 'horizontal'
 }
 
@@ -30,7 +30,7 @@ const withNavigation = (InnerComponent) => {
     render () {
       const { vertical, horizontal, grid, wrapping } = this.props
       const { navigation, parent } = this.context
-      const orientation = getOrientation({ vertical, horizontal, grid })
+      const orientation = getOrientation({ vertical, horizontal })
 
       navigation.register(this.id, {
         parent,
@@ -39,7 +39,12 @@ const withNavigation = (InnerComponent) => {
         wrapping
       })
 
-      return <InnerComponent {...this.props} />
+      return (
+        <InnerComponent
+          {...this.props}
+          id={this.id}
+        />
+      )
     }
   }
 
