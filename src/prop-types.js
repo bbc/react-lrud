@@ -8,20 +8,15 @@ const withOrientation = (props, propName, componentName) => {
 }
 
 export default {
-  navigation: shape({
+  string,
+  element,
+  bool,
+  func,
+  navigationShape: shape({
     register: func.isRequired,
     unregister: func.isRequired
   }),
-  id: string,
-  parent: string,
-  children: element,
-  vertical: bool,
-  horizontal: bool,
-  wrapping: and([
-    bool,
-    withOrientation
-  ]),
-  grid: and([
+  boolAndOrientation: and([
     bool,
     withOrientation
   ])

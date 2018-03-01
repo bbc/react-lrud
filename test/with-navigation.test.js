@@ -170,4 +170,28 @@ describe('withNavigation', () => {
     expect(navigation.register).toHaveBeenLastCalledWith('bar', { parent: 'foo' })
     expect(wrapper.find(Navigable).last().instance().context.parent).toBe('foo')
   })
+
+  it('should register Lrud event callbacks', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+    const noop = () => {}
+
+    shallow(
+      <Navigable
+        id='foo'
+        onFocus={noop}
+        onBlur={noop}
+        onMove={noop}
+        onSelect={noop}
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      onFocus: noop,
+      onBlur: noop,
+      onMove: noop,
+      onSelect: noop
+    })
+  })
 })

@@ -28,7 +28,7 @@ const withNavigation = (InnerComponent) => {
     }
 
     render () {
-      const { vertical, horizontal, grid, wrapping } = this.props
+      const { vertical, horizontal, grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
       const { navigation, parent } = this.context
       const orientation = getOrientation({ vertical, horizontal })
 
@@ -36,7 +36,11 @@ const withNavigation = (InnerComponent) => {
         parent,
         orientation,
         grid,
-        wrapping
+        wrapping,
+        onFocus,
+        onBlur,
+        onMove,
+        onSelect
       })
 
       return (
@@ -49,20 +53,24 @@ const withNavigation = (InnerComponent) => {
   }
 
   Navigable.propTypes = {
-    id: PropTypes.id,
-    vertical: PropTypes.vertical,
-    horizontal: PropTypes.horizontal,
-    grid: PropTypes.grid,
-    wrapping: PropTypes.wrapping
+    id: PropTypes.string,
+    vertical: PropTypes.bool,
+    horizontal: PropTypes.bool,
+    grid: PropTypes.boolAndOrientation,
+    wrapping: PropTypes.boolAndOrientation,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    onMove: PropTypes.func,
+    onSelect: PropTypes.func
   }
 
   Navigable.childContextTypes = {
-    parent: PropTypes.parent.isRequired
+    parent: PropTypes.string.isRequired
   }
 
   Navigable.contextTypes = {
-    parent: PropTypes.parent,
-    navigation: PropTypes.navigation
+    parent: PropTypes.string,
+    navigation: PropTypes.navigationShape
   }
 
   return Navigable

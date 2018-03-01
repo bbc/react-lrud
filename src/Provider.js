@@ -14,12 +14,12 @@ class Provider extends Component {
 }
 
 Provider.propTypes = {
-  navigation: PropTypes.navigation.isRequired,
-  children: PropTypes.children.isRequired
+  navigation: PropTypes.navigationShape.isRequired,
+  children: PropTypes.element.isRequired
 }
 
 Provider.childContextTypes = {
-  navigation: PropTypes.navigation.isRequired
+  navigation: PropTypes.navigationShape.isRequired
 }
 
 export default Provider
