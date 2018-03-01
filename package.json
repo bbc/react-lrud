@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
+    "hoist-non-react-statics": "^2.5.0",
     "prop-types": "^15.6.1",
     "uniqid": "^4.1.1"
   },

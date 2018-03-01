@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from './prop-types'
 import uniqid from 'uniqid'
+import hoistNonReactStatics from 'hoist-non-react-statics'
+import PropTypes from './prop-types'
 
 const guid = (Component) => uniqid(`${Component.displayName || Component.name || 'Navigable'}_`)
 
@@ -72,6 +73,8 @@ const withNavigation = (InnerComponent) => {
     parent: PropTypes.string,
     navigation: PropTypes.navigationShape
   }
+
+  hoistNonReactStatics(Navigable, InnerComponent)
 
   return Navigable
 }

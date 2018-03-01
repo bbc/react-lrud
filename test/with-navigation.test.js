@@ -17,6 +17,10 @@ describe('withNavigation', () => {
     }
   }
 
+  Passthrough.staticProps = {
+    foo: true
+  }
+
   it('should register using the id on props', () => {
     const Navigable = withNavigation(Passthrough)
     const navigation = { register: jest.fn(), unregister: () => {} }
@@ -193,5 +197,11 @@ describe('withNavigation', () => {
       onMove: noop,
       onSelect: noop
     })
+  })
+
+  it('should preserve static properties', () => {
+    const Navigable = withNavigation(Passthrough)
+
+    expect(Navigable.staticProps).toEqual(Passthrough.staticProps)
   })
 })
