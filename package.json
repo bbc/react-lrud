@@ -32,7 +32,9 @@
     "uniqid": "^4.1.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags"
   },
   "jest": {
     "setupFiles": [
