@@ -3,11 +3,6 @@ import hoistNonReactStatics from 'hoist-non-react-statics'
 import { generateUniqComponentId, cleanObject } from './utils'
 import PropTypes from './prop-types'
 
-const mapOrientation = (v, h) => {
-  if (v) return 'vertical'
-  if (h) return 'horizontal'
-}
-
 const withNavigation = (InnerComponent) => {
   class Navigable extends Component {
     constructor (props) {
@@ -26,13 +21,22 @@ const withNavigation = (InnerComponent) => {
       this.context.navigation.unregister(this.id)
     }
 
+    orientation () {
+      const { orientation, vertical, horizontal } = this.props
+
+      if (orientation) return orientation
+      if (vertical) return 'vertical'
+      if (horizontal) return 'horizontal'
+    }
+
     render () {
-      const { orientation, vertical, horizontal, grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
+      const { grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
       const { navigation, parent } = this.context
+      const orientation = this.orientation()
 
       navigation.register(this.id, cleanObject({
         parent,
-        orientation: orientation || mapOrientation(vertical, horizontal),
+        orientation,
         grid,
         wrapping,
         onFocus,
