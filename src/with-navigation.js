@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
-import uniqid from 'uniqid'
 import hoistNonReactStatics from 'hoist-non-react-statics'
+import { generateUniqComponentId, cleanObject } from './utils'
 import PropTypes from './prop-types'
 
-const guid = (Component) => uniqid(`${Component.displayName || Component.name || 'Navigable'}_`)
-
-const getOrientation = ({ vertical, horizontal }) => {
-  if (vertical) return 'vertical'
-  if (horizontal) return 'horizontal'
+const mapOrientation = (v, h) => {
+  if (v) return 'vertical'
+  if (h) return 'horizontal'
 }
-
-const registerOptions = (props) => Object.keys(props).reduce((accum, key) =>
-  Object.assign(accum, props[key] !== undefined ? { [key]: props[key] } : {}), {})
 
 const withNavigation = (InnerComponent) => {
   class Navigable extends Component {
     constructor (props) {
       super(props)
 
-      this.id = props.id || guid(InnerComponent)
+      this.id = props.id || generateUniqComponentId(InnerComponent)
     }
 
     getChildContext () {
@@ -34,9 +29,9 @@ const withNavigation = (InnerComponent) => {
     render () {
       const { vertical, horizontal, grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
       const { navigation, parent } = this.context
-      const orientation = getOrientation({ vertical, horizontal })
+      const orientation = mapOrientation(vertical, horizontal)
 
-      navigation.register(this.id, registerOptions({
+      navigation.register(this.id, cleanObject({
         parent,
         orientation,
         grid,
