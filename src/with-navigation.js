@@ -63,7 +63,7 @@ const withNavigation = (InnerComponent) => {
     wrapping: PropTypes.boolAndOrientation,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
-    onMove: PropTypes.func,
+    onMove: PropTypes.funcAndOrientation,
     onSelect: PropTypes.func
   }
 

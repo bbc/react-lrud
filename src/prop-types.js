@@ -1,9 +1,9 @@
 import { shape, func, string, bool, oneOf, element } from 'prop-types'
 import { and } from 'airbnb-prop-types'
 
-const withOrientation = (props, propName, componentName) => {
+const withOrientation = (props, propName) => {
   if (props[propName] && !props.orientation && !props.vertical && !props.horizontal) {
-    return new Error(`The prop \`${propName}\` must be used in conjunction with one of props \`orientation\`/\`vertical\`/\`horizontal\``)
+    return new Error(`The prop \`${propName}\` must be used in conjunction with one of props [ \`orientation\`, \`vertical\`, \`horizontal\` ]`)
   }
 }
 
@@ -22,6 +22,10 @@ export default {
   }),
   boolAndOrientation: and([
     bool,
+    withOrientation
+  ]),
+  funcAndOrientation: and([
+    func,
     withOrientation
   ])
 }

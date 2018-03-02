@@ -6,6 +6,7 @@ import { withNavigation } from '../src/index'
 
 describe('withNavigation', () => {
   const windowConsole = window.console
+  const noop = () => {}
 
   afterEach(() => {
     window.console = windowConsole
@@ -80,6 +81,40 @@ describe('withNavigation', () => {
     })
   })
 
+  it('should register a `vertical` item via the `orientation` prop', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    shallow(
+      <Navigable
+        id='foo'
+        orientation='vertical'
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      orientation: 'vertical'
+    })
+  })
+
+  it('should register a `horizontal` item via the `orientation` prop', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    shallow(
+      <Navigable
+        id='foo'
+        orientation='horizontal'
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      orientation: 'horizontal'
+    })
+  })
+
   it('should register a `wrapping` item', () => {
     const Navigable = withNavigation(Passthrough)
     const navigation = { register: jest.fn(), unregister: () => {} }
@@ -114,7 +149,7 @@ describe('withNavigation', () => {
     )
 
     expect(window.console.error).toHaveBeenCalledWith(
-      expect.stringMatching(/The prop `wrapping` must be used in conjunction with one of props `orientation`\/`vertical`\/`horizontal`/)
+      expect.stringMatching(/The prop `wrapping` must be used in conjunction with one of props \[ `orientation`, `vertical`, `horizontal` \]/)
     )
   })
 
@@ -152,7 +187,7 @@ describe('withNavigation', () => {
     )
 
     expect(window.console.error).toHaveBeenCalledWith(
-      expect.stringMatching(/The prop `grid` must be used in conjunction with one of props `orientation`\/`vertical`\/`horizontal`/)
+      expect.stringMatching(/The prop `grid` must be used in conjunction with one of props \[ `orientation`, `vertical`, `horizontal` \]/)
     )
   })
 
@@ -178,14 +213,12 @@ describe('withNavigation', () => {
   it('should register Lrud event callbacks', () => {
     const Navigable = withNavigation(Passthrough)
     const navigation = { register: jest.fn(), unregister: () => {} }
-    const noop = () => {}
 
     shallow(
       <Navigable
         id='foo'
         onFocus={noop}
         onBlur={noop}
-        onMove={noop}
         onSelect={noop}
       />,
       { context: { navigation } }
@@ -194,9 +227,46 @@ describe('withNavigation', () => {
     expect(navigation.register).toHaveBeenCalledWith('foo', {
       onFocus: noop,
       onBlur: noop,
-      onMove: noop,
       onSelect: noop
     })
+  })
+
+  it('should register the `onMove` Lrud event callback', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    shallow(
+      <Navigable
+        id='foo'
+        vertical
+        onMove={noop}
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      orientation: 'vertical',
+      onMove: noop
+    })
+  })
+
+  it('should warn when the `onMove` prop is present without an orientation', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    window.console = { error: jest.fn() }
+
+    shallow(
+      <Navigable
+        id='foo'
+        onMove={noop}
+      />,
+      { context: { navigation } }
+    )
+
+    expect(window.console.error).toHaveBeenCalledWith(
+      expect.stringMatching(/The prop `onMove` must be used in conjunction with one of props \[ `orientation`, `vertical`, `horizontal` \]/)
+    )
   })
 
   it('should preserve static properties', () => {
