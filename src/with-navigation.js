@@ -27,13 +27,12 @@ const withNavigation = (InnerComponent) => {
     }
 
     render () {
-      const { vertical, horizontal, grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
+      const { orientation, vertical, horizontal, grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
       const { navigation, parent } = this.context
-      const orientation = mapOrientation(vertical, horizontal)
 
       navigation.register(this.id, cleanObject({
         parent,
-        orientation,
+        orientation: orientation || mapOrientation(vertical, horizontal),
         grid,
         wrapping,
         onFocus,
@@ -53,6 +52,7 @@ const withNavigation = (InnerComponent) => {
 
   Navigable.propTypes = {
     id: PropTypes.string,
+    orientation: PropTypes.orientation,
     vertical: PropTypes.bool,
     horizontal: PropTypes.bool,
     grid: PropTypes.boolAndOrientation,

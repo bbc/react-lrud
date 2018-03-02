@@ -114,7 +114,7 @@ describe('withNavigation', () => {
     )
 
     expect(window.console.error).toHaveBeenCalledWith(
-      expect.stringMatching(/The prop `wrapping` must be used in conjunction with one of props `vertical`\/`horizontal`/)
+      expect.stringMatching(/The prop `wrapping` must be used in conjunction with one of props `orientation`\/`vertical`\/`horizontal`/)
     )
   })
 
@@ -152,7 +152,7 @@ describe('withNavigation', () => {
     )
 
     expect(window.console.error).toHaveBeenCalledWith(
-      expect.stringMatching(/The prop `grid` must be used in conjunction with one of props `vertical`\/`horizontal`/)
+      expect.stringMatching(/The prop `grid` must be used in conjunction with one of props `orientation`\/`vertical`\/`horizontal`/)
     )
   })
 
