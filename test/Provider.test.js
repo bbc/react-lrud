@@ -25,18 +25,20 @@ describe('Provider', () => {
   })
 
   it('should enforce a single child', () => {
+    const navigation = new Lrud()
+
     Provider.propTypes = {}
 
     expect(() => {
       shallow(
-        <Provider>
+        <Provider navigation={navigation}>
         </Provider>
       )
     }).toThrow(/a single React element child/)
 
     expect(() => {
       shallow(
-        <Provider>
+        <Provider navigation={navigation}>
           <div />
           <div />
         </Provider>

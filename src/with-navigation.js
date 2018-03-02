@@ -10,6 +10,9 @@ const getOrientation = ({ vertical, horizontal }) => {
   if (horizontal) return 'horizontal'
 }
 
+const registerOptions = (props) => Object.keys(props).reduce((accum, key) =>
+  Object.assign(accum, props[key] !== undefined ? { [key]: props[key] } : {}), {})
+
 const withNavigation = (InnerComponent) => {
   class Navigable extends Component {
     constructor (props) {
@@ -33,7 +36,7 @@ const withNavigation = (InnerComponent) => {
       const { navigation, parent } = this.context
       const orientation = getOrientation({ vertical, horizontal })
 
-      navigation.register(this.id, {
+      navigation.register(this.id, registerOptions({
         parent,
         orientation,
         grid,
@@ -42,7 +45,7 @@ const withNavigation = (InnerComponent) => {
         onBlur,
         onMove,
         onSelect
-      })
+      }))
 
       return (
         <InnerComponent
