@@ -1,6 +1,6 @@
 {
   "name": "react-lrud",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Official React bindings for Lrud",
   "main": "lib/index.js",
   "license": "MIT",
