@@ -1,8 +1,13 @@
 {
   "presets": [
-    "es2015"
-  ],
-  "plugins": [
-    "transform-react-jsx"
+    [
+      "env",
+      {
+        "targets": {
+          "node": "6.10"
+        }
+      }
+    ],
+    "react"
   ]
 }
