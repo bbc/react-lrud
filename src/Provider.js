@@ -8,30 +8,26 @@ class Provider extends Component {
     }
   }
 
-  _onFocus (id) {
-    const node = this.props.navigation.nodes[id]
-    if (node && node.onFocus) {
+  _onFocus (node) {
+    if (node.onFocus) {
       node.onFocus(node)
     }
   }
 
-  _onBlur (id) {
-    const node = this.props.navigation.nodes[id]
-    if (node && node.onBlur) {
+  _onBlur (node) {
+    if (node.onBlur) {
       node.onBlur(node)
     }
   }
 
-  _onMove (event) {
-    const node = this.props.navigation.nodes[event.id]
-    if (node && node.onMove) {
-      node.onMove(Object.assign({}, node, event))
+  _onMove (node) {
+    if (node.onMove) {
+      node.onMove(node)
     }
   }
 
-  _onSelect (id) {
-    const node = this.props.navigation.nodes[id]
-    if (node && node.onSelect) {
+  _onSelect (node) {
+    if (node.onSelect) {
       node.onSelect(node)
     }
   }
