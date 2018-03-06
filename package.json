@@ -4,6 +4,9 @@
   "description": "Official React bindings for Lrud",
   "main": "lib/index.js",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "author": {
     "name": "Stuart Williams",
     "url": "https://github.com/stuart-williams"
