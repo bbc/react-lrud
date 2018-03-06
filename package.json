@@ -56,7 +56,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "preversion": "npm test",
-    "postversion": "git push && git push origin --tags",
+    "postversion": "git push && git push --tags",
     "clean": "rimraf lib",
     "lint": "eslint src test",
     "prebuild": "npm run clean && npm test",
