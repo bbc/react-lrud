@@ -56,14 +56,14 @@
     "uniqid": "^4.1.1"
   },
   "scripts": {
+    "clean": "rimraf lib",
+    "lint": "eslint src test",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir lib",
     "pretest": "npm run lint && npm run build",
     "test": "jest",
     "preversion": "npm test",
-    "postversion": "git push && git push --tags",
-    "clean": "rimraf lib",
-    "lint": "eslint src test",
-    "prebuild": "npm run clean && npm test",
-    "build": "babel src --out-dir lib"
+    "postversion": "git push && git push --tags"
   },
   "jest": {
     "setupFiles": [
