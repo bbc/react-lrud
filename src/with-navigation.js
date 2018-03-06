@@ -3,7 +3,7 @@ import hoistNonReactStatics from 'hoist-non-react-statics'
 import { generateUniqComponentId, cleanObject } from './utils'
 import PropTypes from './prop-types'
 
-const withNavigation = (InnerComponent) => {
+const withNavigation = (InnerComponent, { includeProps } = {}) => {
   class Navigable extends Component {
     constructor (props) {
       super(props)
@@ -32,18 +32,26 @@ const withNavigation = (InnerComponent) => {
     render () {
       const { grid, wrapping, onFocus, onBlur, onMove, onSelect } = this.props
       const { navigation, parent } = this.context
-      const orientation = this.orientation()
 
-      navigation.register(this.id, cleanObject({
+      let options = {
         parent,
-        orientation,
+        orientation: this.orientation(),
         grid,
         wrapping,
         onFocus,
         onBlur,
         onMove,
         onSelect
-      }))
+      }
+
+      if (Array.isArray(includeProps)) {
+        options = includeProps.reduce((accum, prop) => ({
+          ...accum,
+          [prop]: this.props[prop]
+        }), options)
+      }
+
+      navigation.register(this.id, cleanObject(options))
 
       return (
         <InnerComponent

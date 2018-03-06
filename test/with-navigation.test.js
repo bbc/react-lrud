@@ -274,4 +274,22 @@ describe('withNavigation', () => {
 
     expect(Navigable.staticProps).toEqual(Passthrough.staticProps)
   })
+
+  it('should register props defined in the `includeProps` option', () => {
+    const Navigable = withNavigation(Passthrough, { includeProps: [ 'foo' ] })
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    shallow(
+      <Navigable
+        id='foo'
+        foo
+        bar
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      foo: true
+    })
+  })
 })
