@@ -45,8 +45,7 @@ const withNavigation = (InnerComponent, { includeProps } = {}) => {
       }
 
       if (Array.isArray(includeProps)) {
-        options = includeProps.reduce((accum, prop) => ({
-          ...accum,
+        options = includeProps.reduce((accum, prop) => Object.assign({}, accum, {
           [prop]: this.props[prop]
         }), options)
       }
