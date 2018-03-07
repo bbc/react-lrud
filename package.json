@@ -27,7 +27,7 @@
     "url": "git@github.com:stuart-williams/react-lrud.git"
   },
   "peerDependencies": {
-    "lrud": "^2.0.0",
+    "lrud": "^2.1.0",
     "react": "^16.2.0"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
     "hoist-non-react-statics": "^2.5.0",
-    "lrud": "^2.0.0",
+    "lrud": "^2.1.0",
     "prop-types": "^15.6.1",
     "uniqid": "^4.1.1"
   },
