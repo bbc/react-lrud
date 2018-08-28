@@ -61,7 +61,6 @@
     "lint": "eslint src test",
     "prebuild": "npm run clean",
     "build": "babel src --out-dir lib",
-    "postinstall": "npm run build",
     "pretest": "npm run lint && npm run build",
     "test": "jest",
     "preversion": "npm test",
