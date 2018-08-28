@@ -24,10 +24,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:stuart-williams/react-lrud.git"
+    "url": "git@github.com:bbc/react-lrud.git"
   },
   "peerDependencies": {
-    "lrud": "^2.2.1",
     "react": "^16.2.0"
   },
   "devDependencies": {
