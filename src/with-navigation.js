@@ -30,12 +30,13 @@ const withNavigation = (InnerComponent, { includeProps } = {}) => {
     }
 
     render () {
-      const { grid, wrapping, disabled, onFocus, onBlur, onMove, onSelect } = this.props
+      const { carousel, grid, wrapping, disabled, onFocus, onBlur, onMove, onSelect } = this.props
       const { navigation, parent } = this.context
 
       let options = {
         parent,
         orientation: this.orientation(),
+        carousel,
         grid,
         wrapping,
         disabled,
@@ -67,6 +68,7 @@ const withNavigation = (InnerComponent, { includeProps } = {}) => {
     orientation: PropTypes.orientation,
     vertical: PropTypes.bool,
     horizontal: PropTypes.bool,
+    carousel: PropTypes.boolAndOrientation,
     grid: PropTypes.boolAndOrientation,
     wrapping: PropTypes.boolAndOrientation,
     disabled: PropTypes.bool,
