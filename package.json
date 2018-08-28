@@ -52,7 +52,7 @@
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
     "hoist-non-react-statics": "^2.5.0",
-    "lrud": "^2.2.1",
+    "lrud": "github:bbc/lrud",
     "prop-types": "^15.6.1",
     "uniqid": "^4.1.1"
   },
