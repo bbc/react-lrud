@@ -31,7 +31,6 @@
     "react": "^16.2.0"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -61,7 +60,7 @@
     "clean": "rimraf lib",
     "lint": "eslint src test",
     "prebuild": "npm run clean",
-    "build": "npx babel src --out-dir lib",
+    "build": "babel src --out-dir lib",
     "install": "npm run build",
     "pretest": "npm run lint && npm run build",
     "test": "jest",
