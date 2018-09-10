@@ -41,8 +41,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^23.5.0",
-    "rimraf": "^2.6.2"
+    "jest": "^23.5.0"
   },
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
@@ -54,7 +53,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "rimraf": "^2.6.2"
   },
   "scripts": {
     "clean": "rimraf lib",
