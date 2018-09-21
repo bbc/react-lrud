@@ -42,7 +42,8 @@
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^23.5.0",
-    "no-npm": "github:bbc/no-npm#v0"
+    "no-npm": "github:bbc/no-npm#v0",
+    "in-publish": "^2.0.0"
   },
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
@@ -62,6 +63,7 @@
     "lint": "eslint src test",
     "prebuild": "npm run clean",
     "build": "babel src --out-dir dist",
+    "prepublish": "not-in-install && npm run build || in-install # NPM insanely runs prepublish on npm install: https://github.com/npm/npm/issues/3059",
     "pretest": "npm run lint",
     "test": "jest",
     "preversion": "npm test",
