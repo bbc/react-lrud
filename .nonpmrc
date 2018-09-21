@@ -1,4 +1,4 @@
 {
-  "repo": "ssh://git@github.com:bbc/react-lrud.git",
+  "repo": "git@github.com:bbc/react-lrud.git",
   "branch": "release"
 }
