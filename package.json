@@ -41,7 +41,8 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "no-npm": "github:bbc/no-npm#v0"
   },
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
@@ -66,7 +67,11 @@
     "test": "jest",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
-    "watch": "npm run build -- --watch"
+    "watch": "npm run build -- --watch",
+    "no-npm": "no-npm publish",
+    "publish:patch": "npm version patch && git push origin master && npm run no-npm",
+    "publish:minor": "npm version minor && git push origin master && npm run no-npm",
+    "publish:major": "npm version major && git push origin master && npm run no-npm"
   },
   "jest": {
     "setupFiles": [
