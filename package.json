@@ -2,7 +2,7 @@
   "name": "react-lrud",
   "version": "1.4.1",
   "description": "Official React bindings for Lrud",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "license": "Apache-2.0",
   "files": [
     "dist"
