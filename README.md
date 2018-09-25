@@ -45,5 +45,9 @@ render() {
 
 Now, `navigation.nodes` will contain entries for the 2 `Button`s.
 
+# License
 
 
+LRUD is part of the BBC TAL libraries, and available to everyone under the terms of the Apache 2 open source licence (Apache-2.0). Take a look at the LICENSE file in the code.
+
+Copyright (c) 2018 BBC
