@@ -2,11 +2,10 @@
   "name": "react-lrud",
   "version": "1.3.9",
   "description": "Official React bindings for Lrud",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "license": "MIT",
   "files": [
-    "src",
-    "lib"
+    "dist"
   ],
   "author": {
     "name": "Stuart Williams",
@@ -42,7 +41,6 @@
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^23.5.0",
-    "no-npm": "github:bbc/no-npm#v0",
     "in-publish": "^2.0.0"
   },
   "dependencies": {
@@ -68,11 +66,7 @@
     "test": "jest",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
-    "watch": "npm run build -- --watch",
-    "no-npm": "no-npm publish",
-    "publish:patch": "npm version patch && git push origin master && npm run no-npm",
-    "publish:minor": "npm version minor && git push origin master && npm run no-npm",
-    "publish:major": "npm version major && git push origin master && npm run no-npm"
+    "watch": "npm run build -- --watch"
   },
   "jest": {
     "setupFiles": [
