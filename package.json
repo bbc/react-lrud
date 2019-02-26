@@ -41,8 +41,12 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^23.5.0",
-    "in-publish": "^2.0.0"
+    "in-publish": "^2.0.0",
+    "jest": "^24.1.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0"
   },
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
@@ -50,9 +54,6 @@
     "lrud": "github:bbc/lrud",
     "prop-types": "^15.6.1",
     "uniqid": "^4.1.1",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.2"
