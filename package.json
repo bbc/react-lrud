@@ -1,6 +1,6 @@
 {
   "name": "react-lrud",
-  "version": "1.4.5",
+  "version": "1.5.0",
   "description": "Official React bindings for Lrud",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",
