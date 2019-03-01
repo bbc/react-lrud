@@ -28,7 +28,8 @@
     "url": "git@github.com:bbc/react-lrud.git"
   },
   "peerDependencies": {
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "lrud": "^2.7.0"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
@@ -51,7 +52,7 @@
   "dependencies": {
     "airbnb-prop-types": "^2.8.1",
     "hoist-non-react-statics": "^2.5.0",
-    "lrud": "github:bbc/lrud",
+    "lrud": "^2.7.0",
     "prop-types": "^15.6.1",
     "uniqid": "^4.1.1",
     "react": "^16.2.0",
