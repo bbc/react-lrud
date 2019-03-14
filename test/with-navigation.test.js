@@ -292,4 +292,42 @@ describe('withNavigation', () => {
       foo: true
     })
   })
+
+  it('should register a `horizontal` item with a carousel of a string', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    shallow(
+      <Navigable
+        id='foo'
+        horizontal
+        carousel={'x'}
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      orientation: 'horizontal',
+      carousel: 'x'
+    })
+  })
+
+  it('should register a `horizontal` item with a carousel of a bool', () => {
+    const Navigable = withNavigation(Passthrough)
+    const navigation = { register: jest.fn(), unregister: () => {} }
+
+    shallow(
+      <Navigable
+        id='foo'
+        horizontal
+        carousel
+      />,
+      { context: { navigation } }
+    )
+
+    expect(navigation.register).toHaveBeenCalledWith('foo', {
+      orientation: 'horizontal',
+      carousel: true
+    })
+  })
 })
