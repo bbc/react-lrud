@@ -7,11 +7,17 @@ const withOrientation = (props, propName) => {
   }
 }
 
+const boolOrString = oneOf([
+  bool,
+  string
+])
+
 export default {
   string,
   element,
   bool,
   func,
+  boolOrString,
   orientation: oneOf([
     'vertical',
     'horizontal'
@@ -26,6 +32,10 @@ export default {
   ]),
   funcAndOrientation: and([
     func,
+    withOrientation
+  ]),
+  boolOrStringWithOrientation: and([
+    boolOrString,
     withOrientation
   ])
 }
