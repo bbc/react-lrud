@@ -1,6 +1,6 @@
 {
   "name": "react-lrud",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Official React bindings for Lrud",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",
@@ -60,7 +60,10 @@
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.2"
   },
-  "pre-push": [ "lint", "test" ],
+  "pre-push": [
+    "lint",
+    "test"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint src test",
