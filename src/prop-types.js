@@ -1,4 +1,4 @@
-import { shape, func, string, bool, oneOf, element } from 'prop-types'
+import { shape, func, string, bool, oneOf, element, oneOfType } from 'prop-types'
 import { and } from 'airbnb-prop-types'
 
 const withOrientation = (props, propName) => {
@@ -7,7 +7,7 @@ const withOrientation = (props, propName) => {
   }
 }
 
-const boolOrString = oneOf([
+const boolOrString = oneOfType([
   bool,
   string
 ])
