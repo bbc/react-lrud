@@ -68,7 +68,7 @@ const withNavigation = (InnerComponent, { includeProps } = {}) => {
     orientation: PropTypes.orientation,
     vertical: PropTypes.bool,
     horizontal: PropTypes.bool,
-    carousel: PropTypes.boolAndOrientation,
+    carousel: PropTypes.boolOrStringWithOrientation,
     grid: PropTypes.boolAndOrientation,
     wrapping: PropTypes.boolAndOrientation,
     disabled: PropTypes.bool,

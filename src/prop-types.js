@@ -1,4 +1,4 @@
-import { shape, func, string, bool, oneOf, element } from 'prop-types'
+import { shape, func, string, bool, oneOf, element, oneOfType } from 'prop-types'
 import { and } from 'airbnb-prop-types'
 
 const withOrientation = (props, propName) => {
@@ -7,11 +7,17 @@ const withOrientation = (props, propName) => {
   }
 }
 
+const boolOrString = oneOfType([
+  bool,
+  string
+])
+
 export default {
   string,
   element,
   bool,
   func,
+  boolOrString,
   orientation: oneOf([
     'vertical',
     'horizontal'
@@ -26,6 +32,10 @@ export default {
   ]),
   funcAndOrientation: and([
     func,
+    withOrientation
+  ]),
+  boolOrStringWithOrientation: and([
+    boolOrString,
     withOrientation
   ])
 }
