@@ -1,12 +1,12 @@
 # React LRUD
 
-Official React bindings for [Lrud](https://github.com/stuart-williams/lrud)
+Official React bindings for [Lrud](https://github.com/bbc/lrud)
 
 ## Install
 
 `npm install react-lrud`
 
-All usage of `react-lrud` also relies on [Lrud](https://github.com/stuart-williams/lrud)
+All usage of `react-lrud` also relies on [Lrud](https://github.com/bbc/lrud)
 
 `npm install lrud`
 
