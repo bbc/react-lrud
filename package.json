@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "react": "^16.2.0",
-    "lrud": "^2.7.0"
+    "lrud": "^2.7.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
