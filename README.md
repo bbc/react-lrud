@@ -6,9 +6,11 @@ Official React bindings for [Lrud](https://github.com/bbc/lrud)
 
 `npm install react-lrud`
 
-All usage of `react-lrud` also relies on [Lrud](https://github.com/bbc/lrud)
+All usage of `react-lrud` also currently relies on [Lrud](https://github.com/bbc/lrud) V2.
 
 `npm install lrud@2.7.1`
+
+We hope to upgrade React LRUD to work with LRUD V3 in the near future.
 
 ## Usage
 
