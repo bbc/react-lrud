@@ -55,7 +55,7 @@
     "hoist-non-react-statics": "^2.5.0",
     "lrud": "^2.7.0",
     "prop-types": "^15.6.1",
-    "uniqid": "^4.1.1",
+    "uniqid": "^5.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "rimraf": "^2.6.2"
