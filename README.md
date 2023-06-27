@@ -1,6 +1,16 @@
 # React LRUD
 
+![maintenance-status](https://img.shields.io/badge/maintenance-deprecated-red.svg)
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 Official React bindings for [Lrud](https://github.com/bbc/lrud)
+
+## :nut_and_bolt: Deprecation notice 27/06/2023 :nut_and_bolt:
+Today we are announcing the deprecation of *React LRUD*. This will allow us to concentrate on future work.  A new library called [LRUD Spatial](https://github.com/bbc/lrud-spatial) is now available to the Open Source community. 
+
+As part of the deprecation, pull requests will be disabled and outstanding issues will be closed. React LRUD will not be actively maintained.
+
+If you have any questions, you can contact us via email at: [tvopensource@bbc.co.uk](mailto:tvopensource@bbc.co.uk) 
 
 ## Install
 
